@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+
+<html><head>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+
+
+<label>encrypted</label>
+<div id="demo1"></div>
+<br>
+
+<label>decrypted</label>
+<div id="demo2"></div>
+
+<br>
+<!--
+<label>Actual Message</label>
+<div id="demo3"></div>
+<br>
+<div id="demo4"></div>
+<br>
+<div id="enc"></div>
+<br>
+-->
+<div id="urlnya"></div>
+
+
+<script type="text/javascript">
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const url1= urlParams.get('url1');
+//const url2= urlParams.get('url2');
+
+var encrypted1 = CryptoJS.AES.encrypt(url1, "mujurid");
+var decrypted1 = CryptoJS.AES.decrypt(encrypted1, "mujurid");
+var plaintext1 = decrypted1.toString(CryptoJS.enc.Utf8);
+
+//var decrypted2 = CryptoJS.AES.decrypt(url2, "mujurid");
+//var plaintext2 = decrypted2.toString(CryptoJS.enc.Utf8);
+
+
+document.getElementById("demo1").innerHTML = encrypted1;
+document.getElementById("demo2").innerHTML = decrypted1;
+//document.getElementById("demo3").innerHTML = plaintext1;
+//document.getElementById("demo4").innerHTML = plaintext2;
+
+//document.getElementById("enc").innerHTML = url2;
+
+document.getElementById("urlnya").innerHTML = "<a href='" + plaintext1 + "'>Click Here</a>";
+</script>
+
+</body></html>
